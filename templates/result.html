@@ -1,0 +1,94 @@
+{% extends 'base.html' %}
+{% block body %}
+<SCRIPT>
+    function Find(){
+        var a=parseInt(document.getElementById("sub1").value);
+        var b=parseInt(document.getElementById("sub2").value);
+        var c=parseInt(document.getElementById("sub3").value);
+        var d=parseInt(document.getElementById("sub4").value);
+        var e=parseInt(document.getElementById("sub5").value);
+        
+        var total=0;
+        var percentage=0;
+        total = a+b+c+d+e;
+        percentage =  total/500*100;
+        
+       
+        
+        document.getElementById("txtf").value=""+total;
+        document.getElementById("txtg").value=""+percentage;
+            
+    }
+</SCRIPT>
+<h1><center>Add Result for {{rows.2}}</center></h1>
+
+<form action="url_for{{'result'}}" method="post" class="row g-3 m-4">
+    <div class="col-md-6">
+      <label for="inputPassword4" class="form-label">ID</label>
+      <input type="text" name="id" class="form-control"  value="{{rows.0}}" id="txta" readonly>
+    </div>
+    
+    <div class="col-md-6">
+      <label for="inputPassword4" class="form-label">Name</label>
+      <input type="text" name="name" class="form-control"  value="{{rows.2}}" id="inputPassword4" readonly>
+    </div>
+    <div class="col-md-6">
+      <label for="inputEmail4" class="form-label">Maths</label>
+      <input type="number" name="sub1" class="form-control" id="sub1">
+    </div>
+    <div class="col-md-6">
+      <label for="inputPassword4" class="form-label">Science</label>
+      <input type="number" name="sub2" class="form-control" id="sub2">
+    </div>
+    <div class="col-md-6">
+        <label for="inputEmail4" class="form-label">English</label>
+        <input type="number" name="sub3" class="form-control" id="sub3">
+      </div>
+      <div class="col-md-6">
+        <label for="inputPassword4" class="form-label">Social Study</label>
+        <input type="number" name="sub4" class="form-control" id="sub4">
+      </div>
+      <div class="col-md-6">
+        <label for="inputEmail4" class="form-label">Evs</label>
+        <input type="number" name="sub5" class="form-control" id="sub5">
+      </div>
+      <div class="col-md-6">
+      <input type="button" value="Calculate" onclick="Find()" width="20" /></div>
+      <div class="col-md-6">
+        <label for="inputPassword4" class="form-label">Total</label>
+        <input type="number" name="txtf" class="form-control" id="txtf" readonly>
+      </div>
+      <div class="col-md-6">
+        <label for="inputEmail4" class="form-label">Percentage</label>
+        <input type="number" name="txtg" class="form-control" id="txtg" readonly>
+      </div>
+    <div class="col-12">
+      <button type="submit" onclick="myFunction()" class="btn btn-dark">Add</button>
+    
+     <script>
+      function myFunction() {
+        alert("Marks added successfully");
+      }
+      </script>
+       <!--table--> <div class="container my-3">
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">sno</th>
+            <th scope="col">rollno</th>
+            <th scope="col">Name</th>
+            <th scope="col">Class</th>
+          </tr>
+        </thead>
+        <tbody>
+          
+          <tr>
+            <th scope="row">{{rows.1}}</th>
+            <td>{{rows.1}}</td>
+            <td>{{rows.2}}</td>
+            <td>{{rows.4}}</td>
+          </tr> 
+    </div>
+  </form>
+
+{% endblock %}

@@ -1,0 +1,118 @@
+ {% extends 'base.html' %}
+ {% block body %}
+
+ 
+
+
+ <h1><center>Update teacher details</center></h1>
+ <form action="" method="post" class="row g-3 m-4">
+  <div class="col-md-6">
+    <label for="inputEmail4" class="form-label">Teacher ID</label>
+    <input type="text" name="id" class="form-control" id="inputEmail4" value="{{rows.0}}" >
+  </div>
+  
+  <div class="col-md-6">
+    <label for="inputPassword4" class="form-label">Name</label>
+    <input type="text" name="name" class="form-control" id="inputPassword4" value="{{rows.1}}">
+  </div>
+  <div class="col-md-6">
+    <label for="inputEmail4" class="form-label">Phone No.</label>
+    <input type="text" name="phone" class="form-control" id="inputEmail4" value="{{rows.2}}">
+  </div>
+  <div class="col-md-6">
+    <label for="inputPassword4" class="form-label">Email</label>
+    <input type="email" name="email" class="form-control" id="inputPassword4" value="{{rows.3}}">
+  </div>
+  <div class="col-12">
+    <label for="inputAddress" class="form-label">Address</label>
+    <input type="text" name="address" class="form-control" id="inputAddress" placeholder="Address" value="{{rows.4}}">
+  </div>
+  <div class="col-md-6">
+    <label for="inputEmail4" class="form-label">Age</label>
+    <input type="text" name="age" class="form-control" id="inputEmail4" value="{{rows.5}}" >
+  </div>
+  <div class="col-md-6">
+    <label for="inputPassword4" class="form-label">Date of joining</label>
+    <input type="date" name="doj" class="form-control" id="inputPassword4" value="{{rows.6}}">
+  </div>
+  <div class="col-md-6">
+    <label for="inputState" class="form-label">Term</label>
+    <select name="term" id="inputState" class="form-select" value="{{rows.7}}">
+      <option value="{{ rows.7 }}">{{ rows.7 }}</option>
+      <option >Permanent</option>
+      <option>Temprorary</option>
+      <option>Guest</option>
+    </select>
+  </div>
+  <div class="col-md-6">
+    <label for="inputState" class="form-label">Designation</label>
+    <select name="design" id="inputState" class="form-select" value="{{rows.8}}">
+      <option value="{{ rows.8 }}">{{ rows.8 }}</option>
+      <option >PRT</option>
+      <option>TGT</option>
+      <option>PGT</option>
+    </select>
+  </div>
+  <div class="col-md-6">
+    <label for="inputState" class="form-label">Class</label>
+    <select name="class" id="inputState" class="form-select">
+      <option value="{{ rows.9 }}">{{ rows.9 }}</option>
+      <option >1</option>
+      <option>2</option>
+      <option>3</option>
+      <option>4</option>
+      <option>5</option>
+      <option>6</option>
+      <option>7</option>
+      <option>8</option>
+      <option>9</option>
+      <option>10</option>
+      <option>11</option>
+      <option>12</option>
+    </select>
+  </div>
+  <div class="col-md-6">
+    <label for="inputState" class="form-label">Gender</label>
+    <select name="gender" id="inputState" class="form-select">
+      <option value="{{ rows.10 }}">{{ rows.10 }}</option>
+      <option>Choose gender</option>
+      <option>Male</option>
+      <option>Female</option>
+      <option>Other</option>
+    </select>
+  </div>
+  
+  <div class="col-12">
+    <button type="submit" onclick="myFunction()" class="btn btn-dark">Update</button>
+   <a href="{{url_for('viewteach')}}"> <button type="button" class="btn btn-dark">View</button></a>
+   <script>
+    function myFunction() {
+      alert("Teacher updated successfully");
+    }
+    </script>
+  </div>
+</form>
+</div>
+ <!--table--> <div class="container my-3">
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">sno</th>
+        <th scope="col">Name</th>
+        <th scope="col">Phone</th>
+        <th scope="col">Term</th>
+        <th scope="col">Class</th>
+        
+      </tr>
+    </thead>
+    <tbody>
+     
+      <tr>
+        <th scope="row">{{rows.0}}</th>
+        <td>{{rows.1}}</td>
+        <td>{{rows.2}}</td>
+        <td>{{rows.7}}</td>
+        <td>{{rows.9}}</td>
+      </tr> 
+
+ {% endblock %}

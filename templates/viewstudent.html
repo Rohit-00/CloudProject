@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% block body %}
+
+<h1><center>List of students</center></h1>
+ <!--table--> <div class="container my-3">
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">sno</th>
+            <th scope="col">rollno</th>
+            <th scope="col">Name</th>
+            <th scope="col">Class</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for row in rows %}
+          <tr>
+            <th scope="row">{{loop.index}}</th>
+            <td>{{row.1}}</td>
+            <td>{{row.2}}</td>
+            <td>{{row.4}}</td>
+            <td><a href="/delete/{{row.0}}"><button type="button" onclick="myFunction()" class="btn btn-dark btn-sm mx-1">Delete</button></a>
+            <a href="/updatestudent/{{row.0}}"><button type="button" class="btn btn-dark btn-sm mx-1">Update</button></a>
+            <a href="/result/{{row.0}}"><button type="button" class="btn btn-dark btn-sm mx-1">Add Result</button></a>
+            <a href="/viewresult/{{row.0}}"><button type="button" class="btn btn-dark btn-sm mx-1">View Result</button></a>
+          </td>
+            <script>
+              function myFunction() {
+                alert("Student deleted successfully");
+              }
+              </script>
+          </tr> 
+          {% endfor %}
+          
+      
+        </tbody>
+      </table>
+  </div>
+
+
+
+
+{% endblock %}
